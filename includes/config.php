@@ -22,8 +22,8 @@
  * THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 return array(
-	'username' => '',
-	'password' => '',
+	'username' => 'mysql username',
+	'password' => 'mysql password',
 	'host' => 'localhost',
 	'backup_path' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'database',
 );
