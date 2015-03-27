@@ -32,6 +32,17 @@ $host = $config['host'];
 $backup_path = $config['backup_path'];
 
 /**
+ * The foldername to be created
+ */
+$foldername = $config['servername'] . '-' . $config['host'] . '-' . date('M-d-Y-H-i-s-A');
+
+/**
+ * Path to put all the dump sql files
+ */
+$path = $backup_path . DIRECTORY_SEPARATOR . $foldername;
+mkdir($path);
+
+/**
  * Create a connector to MySQL Database
  */
 $connector = mysql_connect($host, $username, $password);
@@ -65,7 +76,7 @@ while ($database = mysql_fetch_object($databases)) {
 	/**
 	 * Shell command
 	 */
-	$command = 'mysqldump -u' . $username . ' -p' . $password . ' -h' . $host . ' ' . $db . ' > ' . $backup_path . DIRECTORY_SEPARATOR . $db . '.sql';
+	$command = 'mysqldump -u' . $username . ' -p' . $password . ' -h' . $host . ' ' . $db . ' > ' . $path . DIRECTORY_SEPARATOR . $db . '.sql';
 
 	/**
 	 * Execute the command

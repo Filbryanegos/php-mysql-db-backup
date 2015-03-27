@@ -26,4 +26,5 @@ return array(
 	'password' => 'mysql password',
 	'host' => 'localhost',
 	'backup_path' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'database',
+	'servername' => 'my server name',
 );
