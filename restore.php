@@ -29,30 +29,30 @@ $config = require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'includes' . DI
 $username = $config['username'];
 $password = $config['password'];
 $host = $config['host'];
-$backup_path = $config['backup_path'];
+$restorePath = $config['restore.path'];
 
 /**
  * Scan the backup path that will be our basis for restoring the databases
  */
-$dump = scandir($backup_path);
+$dump = scandir($restorePath);
 
-foreach ($dump as $dump_key => $dump_value) {
+foreach ($dump as $dumpKey => $dumpValue) {
 	/**
 	 * Load only for those .sql file extensions
 	 */
-	if(strpos($dump_value, '.sql') !== false) {
+	if(strpos($dumpValue, '.sql') !== false) {
 		/**
 		 * Commands for restore the database that has been detected from the backup path
 		 */
-		$database = str_replace('.sql', '', $dump_value);
-		$message = 'Restore database ' . $database . ' from source file ' . $backup_path . DIRECTORY_SEPARATOR . $dump_value;
+		$database = str_replace('.sql', '', $dumpValue);
+		$message = 'Restore database ' . $database . ' from source file ' . $restorePath . DIRECTORY_SEPARATOR . $dumpValue;
 		echo $message; echo "\n";
 
 		$command = "mysql --user='$username' --password='$password' --host='$host' --execute='CREATE DATABASE $database';";
 		$respone = shell_exec($command);
 		echo $command; echo "\n";
 
-		$command = "mysql --user='$username' --password='$password' --host='$host' $database < " . $backup_path . DIRECTORY_SEPARATOR . $dump_value;
+		$command = "mysql --user='$username' --password='$password' --host='$host' $database < " . $restorePath . DIRECTORY_SEPARATOR . $dumpValue;
 		$respone = shell_exec($command);
 		echo $command; echo "\n"; echo "\n";
 	}
