@@ -29,7 +29,7 @@ $config = require_once(dirname(__FILE__) . DIRECTORY_SEPARATOR . 'includes' . DI
 $username = $config['username'];
 $password = $config['password'];
 $host = $config['host'];
-$backup_path = $config['backup_path'];
+$backupPath = $config['backup.path'];
 
 /**
  * The foldername to be created
@@ -39,7 +39,7 @@ $foldername = $config['servername'] . '-' . $config['host'] . '-' . date('M-d-Y-
 /**
  * Path to put all the dump sql files
  */
-$path = $backup_path . DIRECTORY_SEPARATOR . $foldername;
+$path = $backupPath . DIRECTORY_SEPARATOR . $foldername;
 mkdir($path);
 
 /**
