@@ -25,6 +25,7 @@ return array(
 	'username' => 'mysql username',
 	'password' => 'mysql password',
 	'host' => 'localhost',
-	'backup_path' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'database',
-	'servername' => 'my server name',
+	'backup.path' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'database-backup',
+	'restore.path' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'database-restore',
+	'servername' => '[asus-laptop]',
 );
