@@ -27,5 +27,5 @@ return array(
 	'host' => 'localhost',
 	'backup.path' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'database-backup',
 	'restore.path' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..' . DIRECTORY_SEPARATOR . 'database-restore',
-	'servername' => '[asus-laptop]',
+	'servername' => '[my-servername]',
 );
